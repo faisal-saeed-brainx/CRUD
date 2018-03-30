@@ -42,9 +42,9 @@ else
         <!--<a class='btn btn-primary' href='logout.php' onclick="FB.logout()">Logout</a>-->
         <?php if($_SESSION['mode'] == 'google') {?>
         <?php include('googleScript.php');?>
-        <a class='btn btn-primary' href='logout.php' onclick="gapi.auth2.getAuthInstance().signOut();">Logout</a>
+        <a class='btn btn-primary' href='../account/logout.php' onclick="gapi.auth2.getAuthInstance().signOut();">Logout</a>
         <?php } else {?>
-                <a class='btn btn-primary' href='logout.php'>Logout</a>
+                <a class='btn btn-primary' href='../account/logout.php'>Logout</a>
         <?php }?>
       </div>    
     </div>

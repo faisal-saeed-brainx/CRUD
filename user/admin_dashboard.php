@@ -46,7 +46,7 @@ echo " <div class='container'>
           <h1>Welcome ". $_SESSION['name'] ."! </h1>
         </div>
         <div class='col-md-4' style='padding: 15px 0px; text-align: right;'>
-          <a class='btn btn-primary' href='logout.php'>Logout</a>
+          <a class='btn btn-primary' href='../account/logout.php'>Logout</a>
         </div>    
       </div>
       </div>";

@@ -4,11 +4,11 @@ session_start();
 if (isset($_SESSION['user_id'])) {
   if ($_SESSION['role'] == 'admin')
   {
-    header('Location: admin_dashboard.php');
+    header('Location: user/admin_dashboard.php');
   }
   else
   {
-    header('Location: user_dashboard.php');
+    header('Location: user/user_dashboard.php');
   }
 }
 ?>
@@ -28,11 +28,11 @@ if (isset($_SESSION['user_id'])) {
       $.post('Api/validateApi.php',$('#loginForm').serialize(),function(data, status){
         if(data == 'admin')
         {
-          window.location.href = 'admin_dashboard.php';
+          window.location.href = 'user/admin_dashboard.php';
         }
         else if(data == 'user')
         {
-           window.location.href = 'user_dashboard.php';
+           window.location.href = 'user/user_dashboard.php';
         }
         else if(data == 'error')
         {
