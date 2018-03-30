@@ -1,6 +1,5 @@
 <?php
-include 'utils.php';
-require "vendor/autoload.php";
+require "../vendor/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 // define the consumer key and secet and callback
@@ -72,7 +71,7 @@ if(isset($_GET['oauth_token'])){
 
       // store the data in the session
       //$_SESSION['data']=$data;
-    include('twitterScriptApi.php');
+    include('../Api/twitterScriptApi.php');
       // redirect to same page to remove url parameters
       //$redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         //header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
@@ -102,6 +101,5 @@ else{
   //echo the logout button
   echo "<a href='?logout=true'><button>Logout</button></a>";
 } */
-
 
 ?>

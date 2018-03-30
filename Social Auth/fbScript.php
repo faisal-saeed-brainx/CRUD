@@ -69,16 +69,16 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me',  { locale: 'en_US', fields: 'name, email' }, function(response) {
-      console.log('Successful login for: ' + response.email + ' : ' + response.email);
+      console.log('Successful login for: ' + response.name + ' : ' + response.email);
       var obj={"name": response.name, "email": response.email};
 
       var jsonData=JSON.stringify(obj);
       
-      $.post("fbSignupApi.php", jsonData, function(data){
+      $.post("../Api/fbSignupApi.php", jsonData, function(data){
         if(data == '1')
         {
           alert('Account has been created.');
-          window.location.href = 'login_form.php';
+          window.location.href = '../index.php';
         }
         else if(data == '0')
         {
@@ -87,23 +87,9 @@
         else if(data == '2')
         {
           alert('Logged in Successfully!');
-          window.location.href = 'login_form.php';
+          window.location.href = '../index.php';
         }
         });
-
-      /*$.post('fbSignupApi.php',jsonData,function(data, status){
-        if(data == '1')
-        {
-          alert('Account has been created.');
-          window.location.href = 'login_form.php';
-        }
-        else if(data == '0')
-        {
-          alert('An error has been occured!');
-        }
-      });*/
-      //window.location.href = "user_dashboard.php";
     });
   }
-
 </script>

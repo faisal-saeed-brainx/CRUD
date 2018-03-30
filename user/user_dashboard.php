@@ -17,7 +17,7 @@ session_start();
 if (isset($_SESSION['user_id'])) {
   if ($_SESSION['role'] == 'admin')
   {
-    header('Location: admin_dashboard.php');
+    header('Location: user/admin_dashboard.php');
   }
   else if ($_SESSION['status'] == 'inactive')
   {
@@ -30,7 +30,7 @@ if (isset($_SESSION['user_id'])) {
 }
 else
 {
-    header('Location: login_form.php');
+    header('Location: index.php');
 }
 ?>
 <div class='container'>

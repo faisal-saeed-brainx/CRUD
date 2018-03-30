@@ -1,6 +1,5 @@
 <?php
-include 'utils.php';
-
+include '../assets/utils.php';
 
 $conn = new mysqli(rtrim(getMyEnv('DB_HOST')), rtrim(getMyEnv('DB_USERNAME')), rtrim(getMyEnv('DB_PASSWORD')), rtrim(getMyEnv('DB_DATABASE')));
 		// Check connection
@@ -12,6 +11,7 @@ if ($conn->connect_error) {
 $v_code = $_GET['v_code'];
 
 $sql = "SELECT id, role, mode, status, name,v_code FROM crud_user WHERE v_code='". $v_code ."'";
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) 
@@ -27,7 +27,7 @@ if ($result->num_rows > 0)
 			$_SESSION['mode'] = $row['mode'];
 			$_SESSION['status'] = 'active';
 			$_SESSION['name'] = $row['name'];
-			header('Location: user_dashboard.php');
+			header('Location: ../user/user_dashboard.php');
 		}
 	}
 }

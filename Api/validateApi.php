@@ -1,5 +1,5 @@
 <?php
-include 'utils.php';
+include '../assets/utils.php';
 
 if ($_POST['email'] && $_POST['pwd']) {
 	// Create connection

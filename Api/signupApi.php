@@ -1,5 +1,5 @@
 <?php
-include 'utils.php';
+include '../assets/utils.php';
   // Create connection
 $conn = new mysqli(rtrim(getMyEnv('DB_HOST')), rtrim(getMyEnv('DB_USERNAME')), rtrim(getMyEnv('DB_PASSWORD')), rtrim(getMyEnv('DB_DATABASE')));
   // Check connection
@@ -28,8 +28,7 @@ if ($uploadOk == 0) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $pwd = $_POST['pwd1'];
-//$fileToUpload = $_POST['fileToUpload'];
-
+    
     $sql = "SELECT id FROM crud_user WHERE email='". $email ."' AND mode='local'";
     $result = $conn->query($sql);
 
@@ -53,16 +52,13 @@ if ($uploadOk == 0) {
             $_SESSION['mode'] = $row['mode'];
             $_SESSION['status'] = $row['status'];
             $_SESSION['name'] = $row['name'];
-
             $to = $email;
             $subject = "Verification for CRUD";
-            $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/verifyEmail.php?v_code=" . $row['v_code'];
+            $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/account/verifyEmail.php?v_code=" . $row['v_code'];
             $headers = "From: faisal.saeed@brainxtech.com";
             if (mail($to,$subject,$msg,$headers) == 1) {
               echo "1";
             }
-
-
           }
         }     
       }
@@ -79,7 +75,5 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
-
-
 $conn->close();
 ?>

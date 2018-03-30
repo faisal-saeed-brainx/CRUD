@@ -1,12 +1,11 @@
 <?php
-include 'utils.php';
+include '../assets/utils.php';
 
 $jsondata = file_get_contents('php://input');
 
 $obj = json_decode($jsondata);
 
 //echo  $obj->name;
-
 
 // Create connection
 $conn = new mysqli(rtrim(getMyEnv('DB_HOST')), rtrim(getMyEnv('DB_USERNAME')), rtrim(getMyEnv('DB_PASSWORD')), rtrim(getMyEnv('DB_DATABASE')));
@@ -41,10 +40,9 @@ if ($result->num_rows == 0)
         $_SESSION['mode'] = $row['mode'];
         $_SESSION['status'] = $row['status'];
         $_SESSION['name'] = $row['name'];
-
         $to = $email;
         $subject = "Verification for CRUD";
-        $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/verifyEmail.php?v_code=" . $row['v_code'];
+        $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/account/verifyEmail.php?v_code=" . $row['v_code'];
         $headers = "From: faisal.saeed@brainxtech.com";
         if (mail($to,$subject,$msg,$headers) == 1) {
           echo "1";

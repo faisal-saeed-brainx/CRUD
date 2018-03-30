@@ -1,6 +1,6 @@
 <?php
 
-$target_dir = "uploads/user".$user_id."/";
+$target_dir = "../uploads/user".$user_id."/";
 
 if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, true);

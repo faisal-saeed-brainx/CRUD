@@ -1,5 +1,5 @@
 <?php
-include 'utils.php';
+include '../assets/utils.php';
 // Inialize session
 session_start();
 
@@ -7,12 +7,12 @@ session_start();
 if (isset($_SESSION['user_id'])) {
   if ($_SESSION['role'] == 'user')
   {
-    header('Location: user_dashboard.php');
+    header('Location: user/user_dashboard.php');
   }
 }
 else
 {
-    header('Location: login_form.php');
+    header('Location: index.php');
 }
 ?>
 <!DOCTYPE html>

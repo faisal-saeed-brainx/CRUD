@@ -1,5 +1,5 @@
 <?php
-include 'utils.php';
+include '../assets/utils.php';
 
 $jsondata = file_get_contents('php://input');
 
@@ -44,7 +44,7 @@ if ($result->num_rows == 0)
 
         $to = $email;
         $subject = "Verification for CRUD";
-        $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/verifyEmail.php?v_code=" . $row['v_code'];
+        $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/account/verifyEmail.php?v_code=" . $row['v_code'];
         $headers = "From: faisal.saeed@brainxtech.com";
         if (mail($to,$subject,$msg,$headers) == 1) {
           echo "1";

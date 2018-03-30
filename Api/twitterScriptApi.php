@@ -1,7 +1,5 @@
 <?php
-//include 'utils.php';
-
-
+include '../assets/utils.php';
 // Create connection
 $conn = new mysqli(rtrim(getMyEnv('DB_HOST')), rtrim(getMyEnv('DB_USERNAME')), rtrim(getMyEnv('DB_PASSWORD')), rtrim(getMyEnv('DB_DATABASE')));
     // Check connection
@@ -35,11 +33,11 @@ if ($result->num_rows == 0)
 
         $to = $email;
         $subject = "Verification for CRUD";
-        $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/verifyEmail.php?v_code=" . $row['v_code'];
+        $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/account/verifyEmail.php?v_code=" . $row['v_code'];
         $headers = "From: faisal.saeed@brainxtech.com";
         if (mail($to,$subject,$msg,$headers) == 1) {
           echo "<script>alert('Account has been created.');
-      window.location.href = 'login_form.php';</script>";
+            window.location.href = '../inidex.php';</script>";
         }
       }
     }     
@@ -64,7 +62,7 @@ else
       $_SESSION['status'] = $row['status'];
       $_SESSION['name'] = $row['name'];
       echo "<script>alert('Logged in Successfully!');
-      window.location.href = 'login_form.php';</script>";
+      window.location.href = '../index.php';</script>";
     }
   }     
 }

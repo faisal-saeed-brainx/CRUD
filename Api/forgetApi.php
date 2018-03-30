@@ -1,5 +1,5 @@
 <?php
-include 'utils.php';
+include '../assets/utils.php';
 
 if ($_POST['email']) {
 	// Create connection
@@ -22,7 +22,7 @@ if ($_POST['email']) {
 		{
 			$to = $email;
 			$subject = "Change Password for CRUD";
-			$msg = "Hello!. Your Change Password link is: https://test.brainxtech.com/CRUD/changePassword.php?f_code=" . $f_code;
+			$msg = "Hello!. Your Change Password link is: https://test.brainxtech.com/CRUD/account/changePassword.php?f_code=" . $f_code;
 			$headers = "From: faisal.saeed@brainxtech.com";
 			if (mail($to,$subject,$msg,$headers) == 1) {
 				echo "1";

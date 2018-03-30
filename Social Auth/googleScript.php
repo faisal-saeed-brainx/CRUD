@@ -72,11 +72,11 @@
 
       var jsonData=JSON.stringify(obj);
       
-      $.post("googleSignupApi.php", jsonData, function(data){
+      $.post("../Api/googleSignupApi.php", jsonData, function(data){
         if(data == '1')
         {
           alert('Account has been created.');
-          window.location.href = 'login_form.php';
+          window.location.href = '../index.php';
         }
         else if(data == '0')
         {
@@ -85,7 +85,7 @@
         else if(data == '2')
         {
           alert('Logged in Successfully!');
-          window.location.href = 'login_form.php';
+          window.location.href = '../index.php';
         }
         });
     }
