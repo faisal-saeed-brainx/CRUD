@@ -8,6 +8,7 @@ if (isset($_SESSION['user_id']))
 	$_SESSION['mode'] = "";
 	$_SESSION['status'] = "";
 	$_SESSION['name'] = "";
+	$_SESSION['pic'] = "";
 	session_unset();
 	Session_destroy();
 }

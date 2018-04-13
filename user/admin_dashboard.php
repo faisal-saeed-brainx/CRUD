@@ -7,12 +7,12 @@ session_start();
 if (isset($_SESSION['user_id'])) {
   if ($_SESSION['role'] == 'user')
   {
-    header('Location: user/user_dashboard.php');
+    header('Location: user_dashboard.php');
   }
 }
 else
 {
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -40,16 +40,7 @@ else
 
 <?php
 
-echo " <div class='container'>
-        <div class='row'>
-        <div class='col-md-8'>
-          <h1>Welcome ". $_SESSION['name'] ."! </h1>
-        </div>
-        <div class='col-md-4' style='padding: 15px 0px; text-align: right;'>
-          <a class='btn btn-primary' href='../account/logout.php'>Logout</a>
-        </div>    
-      </div>
-      </div>";
+include "header.php";
 
 // Create connection
   $conn = new mysqli(rtrim(getMyEnv('DB_HOST')), rtrim(getMyEnv('DB_USERNAME')), rtrim(getMyEnv('DB_PASSWORD')), rtrim(getMyEnv('DB_DATABASE')));

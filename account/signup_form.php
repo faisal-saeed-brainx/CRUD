@@ -1,15 +1,15 @@
-    <?php
-    include('Social Auth/twitterScript.php'); 
+<?php
+  include ('../assets/utils.php');
+    include('../Social Auth/twitterScript.php'); 
     //session_start();
-
     if (isset($_SESSION['user_id'])) {
       if ($_SESSION['role'] == 'admin')
       {
-        header('Location: user/admin_dashboard.php');
+        header('Location: ../user/admin_dashboard.php');
       }
       else
       {
-        header('Location: user/user_dashboard.php');
+        header('Location: ../user/user_dashboard.php');
       }
     }
     ?>
@@ -36,14 +36,13 @@
             document.getElementById("submit").disabled = true;
           }
         }
-
         function ajaxLogin()
         {
           //alert('hi');
           var form = $('#signup')[0]; // You need to use standard javascript object here
           var formData = new FormData(form);
           $.ajax({
-            url: 'Api/signupApi.php',
+            url: '../Api/signupApi.php',
             type: "POST",
             data: formData,
             cache: false,
@@ -53,7 +52,7 @@
               if(data == '1')
               {
                 alert('Account has been created.');
-                window.location.href = 'user/user_dashboard.php';  
+                window.location.href = '../user/user_dashboard.php';  
               }
               else if(data == '0')
               {
@@ -76,7 +75,7 @@
     <body onload="">
       <div id="fb-root"></div>
 
-      <?php include('Social Auth/fbScript.php');?>
+      <?php include('../Social Auth/fbScript.php');?>
 
       <div id="status"></div>
 
@@ -120,12 +119,12 @@
           onlogin="checkLoginState();">  
         </div>
       </div>
-      <div class="row" style="text-align: center; padding-top: 10px;">
-        <button id="authorize-button" style="display: block;">Authorize</button>
+      <div class="row" style="text-align: -webkit-center; padding-top: 10px;">
+        <button class='btn btn-danger' id="authorize-button" style="display: block; margin-top: 10px; width: 250px;">Login with Google</button>
         <button id="signout-button" style="display: none;">Sign Out</button>
         <div id="content"></div>
         <div id="my-signin2"></div>
-        <?php include('Social Auth/googleScript.php');?>
+        <?php include('../Social Auth/googleScript.php');?>
       </div>
       <div style="text-align: center;">
         <?php

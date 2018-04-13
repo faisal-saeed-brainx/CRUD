@@ -34,8 +34,8 @@ if ($uploadOk == 0) {
 
     if ($result->num_rows == 0)
     {
-      $sql = "INSERT INTO crud_user (name, email, password, role, mode,status,v_code)
-      VALUES ('". $name ."', '". $email ."', '". $pwd ."','user','local','inactive','". md5(uniqid(rand(), true)) ."')";
+      $sql = "INSERT INTO crud_user (name, email, password, role, mode,status,v_code,pic)
+      VALUES ('". $name ."', '". $email ."', '". $pwd ."','user','local','inactive','". md5(uniqid(rand(), true)) ."', '". $target_file ."')";
 
       if ($conn->query($sql) === TRUE) 
       {
@@ -52,6 +52,7 @@ if ($uploadOk == 0) {
             $_SESSION['mode'] = $row['mode'];
             $_SESSION['status'] = $row['status'];
             $_SESSION['name'] = $row['name'];
+            $_SESSION['pic'] = $target_file;
             $to = $email;
             $subject = "Verification for CRUD";
             $msg = "Hello " . $row['name'] . "!. Your Verification link is: https://test.brainxtech.com/CRUD/account/verifyEmail.php?v_code=" . $row['v_code'];

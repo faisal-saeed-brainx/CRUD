@@ -11,7 +11,7 @@ if ($_POST['email'] && $_POST['pwd']) {
 	$email = $_POST['email'];
 	$pwd = $_POST['pwd'];
 
-	$sql = "SELECT id, role, mode, name, status FROM crud_user WHERE email='". $email ."' AND password='". $pwd ."'";
+	$sql = "SELECT id, role, mode, name, status, pic FROM crud_user WHERE email='". $email ."' AND password='". $pwd ."'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
@@ -24,6 +24,7 @@ if ($_POST['email'] && $_POST['pwd']) {
 			$_SESSION['mode'] = $row['mode'];
 			$_SESSION['name'] = $row['name'];
 			$_SESSION['status'] = $row['status'];
+			$_SESSION['pic'] = $row['pic'];
         	if ($row["role"] == 'user') 
 			{
 				echo 'user';

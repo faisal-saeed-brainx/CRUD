@@ -17,7 +17,7 @@ session_start();
 if (isset($_SESSION['user_id'])) {
   if ($_SESSION['role'] == 'admin')
   {
-    header('Location: user/admin_dashboard.php');
+    header('Location: admin_dashboard.php');
   }
   else if ($_SESSION['status'] == 'inactive')
   {
@@ -30,24 +30,11 @@ if (isset($_SESSION['user_id'])) {
 }
 else
 {
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
+
+include "header.php";
 ?>
-<div class='container'>
-	<div class='row'>
-       <div class='col-md-8'>
-        <h1>Welcome <?= $_SESSION['name'] ?>!</h1>
-      </div>
-      <div class='col-md-4' style='padding: 15px 0px; text-align: right;'>
-        <!--<a class='btn btn-primary' href='logout.php' onclick="FB.logout()">Logout</a>-->
-        <?php if($_SESSION['mode'] == 'google') {?>
-        <?php include('googleScript.php');?>
-        <a class='btn btn-primary' href='../account/logout.php' onclick="gapi.auth2.getAuthInstance().signOut();">Logout</a>
-        <?php } else {?>
-                <a class='btn btn-primary' href='../account/logout.php'>Logout</a>
-        <?php }?>
-      </div>    
-    </div>
-</div>
+
 </body>
 </html>
